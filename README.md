@@ -40,16 +40,16 @@
 
 ## 🛠 Tech Stack
 
-| Technology | Purpose |
-| :--- | :--- |
-| **[Next.js 16 (App Router)](https://nextjs.org/)** | React Framework with Turbopack & Server/Client components |
-| **[React 19](https://react.dev/)** | Core UI library |
-| **[TypeScript 5](https://www.typescriptlang.org/)** | Type safety and strict interface definitions |
-| **[Tailwind CSS v4](https://tailwindcss.com/)** | Utility-first styling engine with `@theme` token mappings |
-| **[GSAP & ScrollTrigger](https://greensock.com/gsap/)** | Advanced timeline animations and scroll-scrubbed effects |
-| **[Framer Motion](https://www.framer.com/motion/)** | Spring physics, magnetic buttons, and viewport reveals |
-| **[Lenis](https://lenis.darkroom.engineering/)** | Smooth inertial scrolling engine |
-| **[Three.js / React Three Fiber](https://threejs.org/)** | 3D WebGL scenes and structural rendering |
+| Technology                                               | Purpose                                                   |
+| :------------------------------------------------------- | :-------------------------------------------------------- |
+| **[Next.js 16 (App Router)](https://nextjs.org/)**       | React Framework with Turbopack & Server/Client components |
+| **[React 19](https://react.dev/)**                       | Core UI library                                           |
+| **[TypeScript 5](https://www.typescriptlang.org/)**      | Type safety and strict interface definitions              |
+| **[Tailwind CSS v4](https://tailwindcss.com/)**          | Utility-first styling engine with `@theme` token mappings |
+| **[GSAP & ScrollTrigger](https://greensock.com/gsap/)**  | Advanced timeline animations and scroll-scrubbed effects  |
+| **[Framer Motion](https://www.framer.com/motion/)**      | Spring physics, magnetic buttons, and viewport reveals    |
+| **[Lenis](https://lenis.darkroom.engineering/)**         | Smooth inertial scrolling engine                          |
+| **[Three.js / React Three Fiber](https://threejs.org/)** | 3D WebGL scenes and structural rendering                  |
 
 ---
 
@@ -73,12 +73,12 @@ The palette is intentionally near-black with **platinum/silver whites** — no g
 
 Four distinct typographic roles drive the hierarchy:
 
-| Class | Scale | Tracking | Role |
-| :--- | :--- | :--- | :--- |
-| `cellyra-display` | `clamp(3.2rem → 8.5rem)` | `-0.055em` | Hero titles |
-| `cellyra-h2` | `clamp(2.4rem → 4.8rem)` | `-0.04em` | Section headings |
-| `cellyra-h3` | `clamp(1.4rem → 2.2rem)` | `-0.025em` | Card headings |
-| `cellyra-eyebrow` | `11px` mono | `+0.28em` | Index / category labels |
+| Class             | Scale                    | Tracking   | Role                    |
+| :---------------- | :----------------------- | :--------- | :---------------------- |
+| `cellyra-display` | `clamp(3.2rem → 8.5rem)` | `-0.055em` | Hero titles             |
+| `cellyra-h2`      | `clamp(2.4rem → 4.8rem)` | `-0.04em`  | Section headings        |
+| `cellyra-h3`      | `clamp(1.4rem → 2.2rem)` | `-0.025em` | Card headings           |
+| `cellyra-eyebrow` | `11px` mono              | `+0.28em`  | Index / category labels |
 
 All sizes use `clamp()` for fluid, viewport-proportional scaling with zero breakpoint jumps.
 
@@ -120,12 +120,12 @@ Stagger delays are baked directly into CSS via `:nth-child` rules (80ms incremen
 
 #### Micro-Interactions
 
-| Element | Hover Effect |
-| :--- | :--- |
-| Buttons | `translateY(−2px)` lift, `translateY(0)` on active |
-| Cards | `translateY(−4px)` lift + violet glow border |
-| Pills | Border brightens to `--cellyra-silver-border` |
-| Secondary buttons | Glassmorphic background intensifies |
+| Element           | Hover Effect                                       |
+| :---------------- | :------------------------------------------------- |
+| Buttons           | `translateY(−2px)` lift, `translateY(0)` on active |
+| Cards             | `translateY(−4px)` lift + violet glow border       |
+| Pills             | Border brightens to `--cellyra-silver-border`      |
+| Secondary buttons | Glassmorphic background intensifies                |
 
 All transitions use the shared `--cellyra-transition-base` token (`500ms cubic-bezier(0.22, 1, 0.36, 1)`) — nothing is arbitrary.
 
@@ -154,6 +154,7 @@ All motion is wrapped in `@media (prefers-reduced-motion: reduce)`, collapsing a
 ### Installation
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/your-username/cellyra-bio.git
    cd cellyra-bio

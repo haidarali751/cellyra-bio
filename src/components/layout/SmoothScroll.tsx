@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactLenis } from "lenis/react";
+import { ReactLenis, type LenisRef } from "lenis/react";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
-  const lenisRef = useRef<any>(null);
+  const lenisRef = useRef<LenisRef>(null);
 
   useEffect(() => {
     const lenis = lenisRef.current?.lenis;
@@ -31,7 +31,7 @@ export const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
         const targetElement = document.querySelector(anchor.hash);
         if (targetElement) {
           e.preventDefault();
-          lenisRef.current?.lenis?.scrollTo(targetElement, {
+          lenisRef.current?.lenis?.scrollTo(targetElement as HTMLElement, {
             offset: 0,
             duration: 1.2,
             easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // standard expo out
