@@ -131,10 +131,11 @@ export const Research = () => {
                   flexGrow: isActive ? 4 : 1,
                   flexBasis: isActive ? "320px" : "80px",
                 }}
-                className={`group relative overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer flex items-end min-w-0 select-none transform-gpu rounded-xl border bg-(--cellyra-surface)/40 backdrop-blur-xs ${isActive
-                  ? "border-(--cellyra-silver-border) shadow-[0_12px_40px_rgba(0,0,0,0.4)] h-80 md:h-full"
-                  : "border-(--cellyra-border) hover:border-(--cellyra-silver-border)/60 h-24 md:h-full opacity-80 md:opacity-100"
-                  }`}
+                className={`group relative overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer flex items-end min-w-0 select-none transform-gpu rounded-xl border bg-(--cellyra-surface)/40 backdrop-blur-xs ${
+                  isActive
+                    ? "border-(--cellyra-silver-border) shadow-[0_12px_40px_rgba(0,0,0,0.4)] h-80 md:h-full"
+                    : "border-(--cellyra-border) hover:border-(--cellyra-silver-border)/60 h-24 md:h-full opacity-80 md:opacity-100"
+                }`}
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 transition-transform duration-700 ease-out transform-gpu scale-105 group-hover:scale-100">
@@ -142,10 +143,11 @@ export const Research = () => {
                     src={program.image}
                     alt={program.title}
                     fill
-                    className={`object-cover transition-opacity duration-500 ${isActive
-                      ? "opacity-95"
-                      : "opacity-50 group-hover:opacity-75"
-                      }`}
+                    className={`object-cover transition-opacity duration-500 ${
+                      isActive
+                        ? "opacity-95"
+                        : "opacity-50 group-hover:opacity-75"
+                    }`}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
                     quality={75}
                   />
@@ -153,14 +155,11 @@ export const Research = () => {
 
                 {/* Dark Vignette Overlay */}
                 <div
-                  className={`absolute inset-0 transition-opacity duration-500 ${isActive
-                    ? "opacity-85"
-                    : "opacity-90 group-hover:opacity-75"
-                    }`}
-                  style={{
-                    background:
-                      "linear-gradient(to top, #04050a 0%, rgba(4,5,10,0.65) 50%, rgba(4,5,10,0.2) 100%)",
-                  }}
+                  className={`absolute inset-0 transition-opacity duration-500 ${
+                    isActive
+                      ? "opacity-85"
+                      : "opacity-90 group-hover:opacity-75"
+                  }`}
                 />
 
                 {/* Content Overlay */}
@@ -168,18 +167,20 @@ export const Research = () => {
                   {/* Top / Header Meta */}
                   <div className="flex items-center gap-2">
                     <span
-                      className={`font-mono text-[11px] font-bold px-2.5 py-0.5 rounded-full transition-all duration-300 ${isActive
-                        ? "bg-white text-black font-extrabold shadow-md"
-                        : "bg-black/60 backdrop-blur-md border border-white/20 text-white"
-                        }`}
+                      className={`font-mono text-[11px] font-bold px-2.5 py-0.5 rounded-full transition-all duration-300 ${
+                        isActive
+                          ? "bg-white text-black font-extrabold shadow-md"
+                          : "bg-black/60 backdrop-blur-md border border-white/20 text-white"
+                      }`}
                     >
                       {program.idx}
                     </span>
                     <span
-                      className={`font-mono text-[9px] font-semibold uppercase tracking-[0.2em] transition-opacity duration-300 ${isActive
-                        ? "text-white/90"
-                        : "text-white/60 md:hidden lg:inline"
-                        }`}
+                      className={`font-mono text-[9px] font-semibold uppercase tracking-[0.2em] transition-opacity duration-300 ${
+                        isActive
+                          ? "text-white/90"
+                          : "text-white/60 md:hidden lg:inline"
+                      }`}
                     >
                       {program.category}
                     </span>
@@ -187,20 +188,22 @@ export const Research = () => {
 
                   {/* Title */}
                   <h3
-                    className={`font-heading font-bold tracking-tight text-white transition-all duration-300 ${isActive
-                      ? "text-xl sm:text-2xl lg:text-3xl whitespace-normal mt-2.5"
-                      : "text-base sm:text-lg md:text-xs lg:text-base whitespace-nowrap overflow-hidden text-ellipsis md:absolute md:left-1/2 md:-translate-x-1/2 md:-rotate-90 md:origin-center md:bottom-28 lg:relative lg:left-auto lg:translate-x-0 lg:rotate-0 lg:bottom-auto lg:mt-auto lg:mb-4"
-                      }`}
+                    className={`font-heading font-bold tracking-tight text-white transition-all duration-300 ${
+                      isActive
+                        ? "text-xl sm:text-2xl lg:text-3xl whitespace-normal mt-2.5"
+                        : "text-base sm:text-lg md:text-xs lg:text-base whitespace-nowrap overflow-hidden text-ellipsis md:absolute md:left-1/2 md:-translate-x-1/2 md:-rotate-90 md:origin-center md:bottom-28 lg:relative lg:left-auto lg:translate-x-0 lg:rotate-0 lg:bottom-auto lg:mt-auto lg:mb-4"
+                    }`}
                   >
                     {program.title}
                   </h3>
 
                   {/* Description (visible when active) */}
                   <div
-                    className={`transition-all duration-400 ease-out overflow-hidden ${isActive
-                      ? "opacity-100 max-h-36 mt-2 translate-y-0"
-                      : "opacity-0 max-h-0 mt-0 translate-y-2 pointer-events-none"
-                      }`}
+                    className={`transition-all duration-400 ease-out overflow-hidden ${
+                      isActive
+                        ? "opacity-100 max-h-36 mt-2 translate-y-0"
+                        : "opacity-0 max-h-0 mt-0 translate-y-2 pointer-events-none"
+                    }`}
                   >
                     <p className="font-sans text-xs sm:text-sm leading-relaxed text-white/85 line-clamp-3 max-w-xl">
                       {program.description}
