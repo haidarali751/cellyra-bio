@@ -115,8 +115,12 @@ const PipelineEqualizerVisualizer = ({ inView }: { inView: boolean }) => {
           animate={
             inView
               ? {
-                height: [`${height * 0.4}%`, `${height}%`, `${height * 0.7}%`],
-              }
+                  height: [
+                    `${height * 0.4}%`,
+                    `${height}%`,
+                    `${height * 0.7}%`,
+                  ],
+                }
               : { height: "10%" }
           }
           transition={{
@@ -161,12 +165,12 @@ const WaveformVisualizer = ({ inView }: { inView: boolean }) => {
           animate={
             inView
               ? {
-                d: [
-                  "M 0 35 Q 25 10 50 30 T 100 15 L 100 50 L 0 50 Z",
-                  "M 0 20 Q 25 35 50 15 T 100 30 L 100 50 L 0 50 Z",
-                  "M 0 35 Q 25 10 50 30 T 100 15 L 100 50 L 0 50 Z",
-                ],
-              }
+                  d: [
+                    "M 0 35 Q 25 10 50 30 T 100 15 L 100 50 L 0 50 Z",
+                    "M 0 20 Q 25 35 50 15 T 100 30 L 100 50 L 0 50 Z",
+                    "M 0 35 Q 25 10 50 30 T 100 15 L 100 50 L 0 50 Z",
+                  ],
+                }
               : {}
           }
           transition={{
@@ -186,12 +190,12 @@ const WaveformVisualizer = ({ inView }: { inView: boolean }) => {
           animate={
             inView
               ? {
-                d: [
-                  "M 0 35 Q 25 10 50 30 T 100 15",
-                  "M 0 20 Q 25 35 50 15 T 100 30",
-                  "M 0 35 Q 25 10 50 30 T 100 15",
-                ],
-              }
+                  d: [
+                    "M 0 35 Q 25 10 50 30 T 100 15",
+                    "M 0 20 Q 25 35 50 15 T 100 30",
+                    "M 0 35 Q 25 10 50 30 T 100 15",
+                  ],
+                }
               : {}
           }
           transition={{
@@ -390,7 +394,7 @@ export const Impact = () => {
   return (
     <section
       id="impact"
-      className="relative px-6 py-36 lg:px-8 overflow-hidden bg-(--cellyra-bg) text-(--cellyra-text) transition-colors duration-500"
+      className="relative px-6 lg:py-36 py-10 lg:px-8 overflow-hidden bg-(--cellyra-bg) text-(--cellyra-text) transition-colors duration-500"
     >
       {/* Background ambient lighting */}
       <div

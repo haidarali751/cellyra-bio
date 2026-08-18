@@ -282,24 +282,64 @@ const NodeNetworkCanvas = () => {
 
 const GenomicTicker = () => {
   const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    const container = containerRef.current;
+    if (!el || !container) return;
+
     let x = 0;
     let raf: number;
+    let running = false;
+
     const tick = () => {
+      if (!running) return;
       x -= 0.6;
-      if (x < -el!.scrollWidth / 2) x = 0;
-      el!.style.transform = `translateX(${x}px)`;
+      const halfWidth = el.scrollWidth / 2;
+      if (x < -halfWidth) x = 0;
+      el.style.transform = `translate3d(${x}px, 0, 0)`;
       raf = requestAnimationFrame(tick);
     };
-    tick();
-    return () => cancelAnimationFrame(raf);
+
+    const start = () => {
+      if (!running) {
+        running = true;
+        tick();
+      }
+    };
+
+    const stop = () => {
+      running = false;
+      cancelAnimationFrame(raf);
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          start();
+        } else {
+          stop();
+        }
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(container);
+
+    return () => {
+      stop();
+      observer.disconnect();
+    };
   }, []);
+
   const doubled = genomicSequence + genomicSequence;
   return (
-    <div className="overflow-hidden whitespace-nowrap font-mono text-[10px] tracking-[0.18em] text-(--cellyra-muted) opacity-50 select-none">
-      <div ref={ref} className="inline-block">
+    <div
+      ref={containerRef}
+      className="overflow-hidden whitespace-nowrap font-mono text-[10px] tracking-[0.18em] text-(--cellyra-muted) opacity-50 select-none"
+    >
+      <div ref={ref} className="inline-block will-change-transform">
         {doubled}
       </div>
     </div>

@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 
 export const FinalCTA = () => {
   return (
-    <section id="contact" className="relative px-6 py-40 lg:px-8">
+    <section id="contact" className="relative px-6 lg:py-40 py-10 lg:px-8">
       <div
         className="pointer-events-none absolute inset-0 opacity-30"
         aria-hidden="true"
       >
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-125 w-175">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-125 w-full md:w-175">
           <Image
             src="/images/cta/future-biology.svg"
             alt=""

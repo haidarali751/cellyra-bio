@@ -15,21 +15,13 @@ const Home = () => {
     <main className="min-h-screen bg-(--cellyra-bg) text-(--cellyra-text) transition-colors duration-500 relative">
       <GlobalSpotlight />
       <Navbar />
-
       <Hero />
-
       <Innovation />
-
       <Research />
-
       <Technology />
-
       <Capabilities />
-
       <Impact />
-
       <FinalCTA />
-
       <Footer />
     </main>
   );

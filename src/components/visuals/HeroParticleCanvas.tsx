@@ -100,8 +100,10 @@ const HeroParticleCanvas = () => {
     /* ── scatter ─────────────────────────────────────────────────── */
     const scatter = () => {
       const isLight = document.documentElement.classList.contains("light");
+      const isMobile = W < 768;
+      const count = isMobile ? 800 : PARTICLE_COUNT;
       particles = [];
-      for (let i = 0; i < PARTICLE_COUNT; i++) {
+      for (let i = 0; i < count; i++) {
         const hx = Math.random() * W;
         const hy = Math.random() * H;
         const radius =
@@ -164,9 +166,13 @@ const HeroParticleCanvas = () => {
         p.y += p.vy;
 
         ctx.fillStyle = p.rgba; // pre-baked string — zero allocation
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fill();
+        if (p.radius < 2.0) {
+          ctx.fillRect(p.x - p.radius, p.y - p.radius, p.radius * 2, p.radius * 2);
+        } else {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fill();
+        }
       }
 
       rafId = requestAnimationFrame(draw);

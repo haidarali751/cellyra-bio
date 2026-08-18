@@ -17,9 +17,43 @@ export const GlobalSpotlight = () => {
 
     if (isTouchDevice) return;
 
+    let running = false;
+
+    const animate = () => {
+      const ease = 0.14;
+      const dx = targetPos.current.x - currentPos.current.x;
+      const dy = targetPos.current.y - currentPos.current.y;
+
+      // If the difference is extremely small, stop the loop to save CPU
+      if (Math.abs(dx) < 0.08 && Math.abs(dy) < 0.08) {
+        currentPos.current = { ...targetPos.current };
+        running = false;
+        return;
+      }
+
+      currentPos.current.x += dx * ease;
+      currentPos.current.y += dy * ease;
+
+      if (spotlightRef.current) {
+        const x = Math.round(currentPos.current.x);
+        const y = Math.round(currentPos.current.y);
+        spotlightRef.current.style.background = `radial-gradient(750px circle at ${x}px ${y}px, var(--cellyra-silver-border) 0%, transparent 65%)`;
+      }
+
+      rafId.current = requestAnimationFrame(animate);
+    };
+
+    const startAnimation = () => {
+      if (!running) {
+        running = true;
+        rafId.current = requestAnimationFrame(animate);
+      }
+    };
+
     const handleMouseMove = (e: globalThis.MouseEvent) => {
       targetPos.current = { x: e.clientX, y: e.clientY };
-      if (!isVisible) setIsVisible(true);
+      setIsVisible(true);
+      startAnimation();
     };
 
     const handleMouseLeave = () => {
@@ -28,28 +62,12 @@ export const GlobalSpotlight = () => {
 
     const handleMouseEnter = () => {
       setIsVisible(true);
+      startAnimation();
     };
 
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
     document.addEventListener("mouseleave", handleMouseLeave);
     document.addEventListener("mouseenter", handleMouseEnter);
-
-    const animate = () => {
-      const ease = 0.16;
-      currentPos.current.x += (targetPos.current.x - currentPos.current.x) * ease;
-      currentPos.current.y += (targetPos.current.y - currentPos.current.y) * ease;
-
-      if (spotlightRef.current) {
-        const x = Math.round(currentPos.current.x);
-        const y = Math.round(currentPos.current.y);
-
-        spotlightRef.current.style.background = `radial-gradient(750px circle at ${x}px ${y}px, var(--cellyra-silver-border) 0%, transparent 65%)`;
-      }
-
-      rafId.current = requestAnimationFrame(animate);
-    };
-
-    rafId.current = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
@@ -57,7 +75,7 @@ export const GlobalSpotlight = () => {
       document.removeEventListener("mouseenter", handleMouseEnter);
       if (rafId.current) cancelAnimationFrame(rafId.current);
     };
-  }, [isVisible]);
+  }, []);
 
   return (
     <div

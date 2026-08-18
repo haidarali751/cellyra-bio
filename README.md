@@ -63,6 +63,87 @@ The application utilizes a curated 3-tier font stack via `next/font/google`:
 
 ---
 
+## 🎨 Design & Animation Philosophy
+
+### Color System — "Hyper Monochrome"
+
+The palette is intentionally near-black with **platinum/silver whites** — no generic accent colors. Dark mode uses deep charcoal (`#07080c`) with off-white accents (`#f8fafc`). Light mode perfectly inverts this to obsidian ink on pearl. Accent glows (green `#00ffa3`, violet `#a855f7`, cyan `#00d4ff`) appear sparingly as **light sources**, not fills — embedded in blurred radial gradients rather than applied as solid colors.
+
+### Typography Hierarchy — Editorial Scale
+
+Four distinct typographic roles drive the hierarchy:
+
+| Class | Scale | Tracking | Role |
+| :--- | :--- | :--- | :--- |
+| `cellyra-display` | `clamp(3.2rem → 8.5rem)` | `-0.055em` | Hero titles |
+| `cellyra-h2` | `clamp(2.4rem → 4.8rem)` | `-0.04em` | Section headings |
+| `cellyra-h3` | `clamp(1.4rem → 2.2rem)` | `-0.025em` | Card headings |
+| `cellyra-eyebrow` | `11px` mono | `+0.28em` | Index / category labels |
+
+All sizes use `clamp()` for fluid, viewport-proportional scaling with zero breakpoint jumps.
+
+### Glassmorphism & Depth
+
+Cards, navigation, and overlay panels use `cellyra-glass`: `backdrop-filter: blur(24px)` over a semi-transparent surface. Scene depth is created with large gaussian-blurred radial gradient orbs ("glow layers") rather than solid box shadows — every section feels lit from within.
+
+### Noise Texture
+
+A zero-CPU-cost dot-grid overlay (`opacity: 0.018`, 24px grid) prevents flat backgrounds from looking sterile. Light mode inverts to dark dots. The finer variant (`cellyra-noise-fine`) at 16px pitch is used inside denser UI areas.
+
+---
+
+### ✨ Animation Approach
+
+#### Entry — GSAP Orchestrated Timelines
+
+The Hero section uses a `gsap.timeline` with `power3.out` easing. Elements enter in a cinematic cascade with overlapping offsets:
+
+```
+eyebrow (y:20) → title lines (y:90, stagger 0.1s) → description → CTAs → meta stats → scroll indicator
+```
+
+Each element overlaps the previous by `−0.45s` to `−0.55s`, creating a smooth wave rather than sequential pops.
+
+#### Scroll — Scrubbed Parallax Exit
+
+A second GSAP timeline with `ScrollTrigger` (`scrub: 1`) smoothly fades and lifts the hero content (`y: −130`) while expanding the ambient glow orb (`scale: 1.5`) as the user scrolls. The section **evaporates** out of view rather than abruptly disappearing.
+
+#### Capabilities Section — Horizontal Scroll Track
+
+The Capabilities section pins itself at `h-[480vh]`, using `useScroll` + `useTransform` (Framer Motion) to map vertical scroll progress into a horizontal `x` translation across the card track — creating a native-feeling lateral scroll panel driven by the vertical scroll wheel.
+
+#### Section Reveals — CSS Intersection Observer
+
+All lower sections use `.cellyra-reveal` and `.cellyra-reveal-stagger` classes driven by `IntersectionObserver`. The easing curve — `cubic-bezier(0.22, 1, 0.36, 1)` — is an **expo-out** feel applied consistently: fast initial movement, silky deceleration.
+
+Stagger delays are baked directly into CSS via `:nth-child` rules (80ms increments), eliminating JavaScript overhead for reveal choreography.
+
+#### Micro-Interactions
+
+| Element | Hover Effect |
+| :--- | :--- |
+| Buttons | `translateY(−2px)` lift, `translateY(0)` on active |
+| Cards | `translateY(−4px)` lift + violet glow border |
+| Pills | Border brightens to `--cellyra-silver-border` |
+| Secondary buttons | Glassmorphic background intensifies |
+
+All transitions use the shared `--cellyra-transition-base` token (`500ms cubic-bezier(0.22, 1, 0.36, 1)`) — nothing is arbitrary.
+
+#### Ambient — CSS Keyframe Loops
+
+- **`aurora-border`** — 6s loop cycling green → violet → cyan border glow (used on featured UI elements)
+- **`float`** — 6s sine-wave Y-axis bob (`translateY(0 → −8px)`) for decorative floating elements
+
+#### Scroll Engine — Lenis
+
+Native browser scroll is replaced with **Lenis** for smooth inertial momentum. This makes scrubbed `ScrollTrigger` timelines feel physically natural — the content slides against physics rather than snapping mechanically.
+
+#### Accessibility
+
+All motion is wrapped in `@media (prefers-reduced-motion: reduce)`, collapsing all `animation-duration` and `transition-duration` values to `0.01ms` and making `.cellyra-reveal` elements instantly visible. No user is forced through animation.
+
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites

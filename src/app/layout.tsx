@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans, JetBrains_Mono, Playfair_Display } from "next/font/google";
+import {
+  Inter,
+  Plus_Jakarta_Sans,
+  JetBrains_Mono,
+  Playfair_Display,
+} from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { ThemeProvider } from "@/context/ThemeContext";
