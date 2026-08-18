@@ -202,8 +202,11 @@ const HeroParticleCanvas = () => {
     );
     io.observe(wrap);
 
-    /* ── mouse — attached to section, NOT canvas ─────────────────── */
+    /* ── mouse — attached to parent section (or document) to prevent scroll hijack on iOS ── */
+    const parentSection = wrap.closest("section") || wrap;
+
     const onMouseMove = (e: MouseEvent) => {
+      if (isMobileDevice) return;
       mouse.x = e.clientX - cachedRect.left;
       mouse.y = e.clientY - cachedRect.top;
     };
@@ -211,15 +214,9 @@ const HeroParticleCanvas = () => {
       mouse.x = -99999;
       mouse.y = -99999;
     };
-    const onTouchMove = (e: TouchEvent) => {
-      mouse.x = e.touches[0].clientX - cachedRect.left;
-      mouse.y = e.touches[0].clientY - cachedRect.top;
-    };
 
-    wrap.addEventListener("mousemove", onMouseMove);
-    wrap.addEventListener("mouseleave", onMouseLeave);
-    wrap.addEventListener("touchmove", onTouchMove, { passive: true });
-    wrap.addEventListener("touchend", onMouseLeave);
+    parentSection.addEventListener("mousemove", onMouseMove);
+    parentSection.addEventListener("mouseleave", onMouseLeave);
 
     const ro = new ResizeObserver(resize);
     ro.observe(wrap);
@@ -229,29 +226,33 @@ const HeroParticleCanvas = () => {
       stop();
       io.disconnect();
       ro.disconnect();
-      wrap.removeEventListener("mousemove", onMouseMove);
-      wrap.removeEventListener("mouseleave", onMouseLeave);
-      wrap.removeEventListener("touchmove", onTouchMove);
-      wrap.removeEventListener("touchend", onMouseLeave);
+      parentSection.removeEventListener("mousemove", onMouseMove);
+      parentSection.removeEventListener("mouseleave", onMouseLeave);
     };
   }, []);
 
   return (
-    /* wrapper div — receives mouse events, canvas itself is pointer-events:none */
+    /* wrapper div — is set to pointer-events:none to completely prevent touch blocking/scroll hijack on iOS */
     <div
       ref={wrapRef}
       style={{
         position: "absolute",
-        inset: 0,
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
         zIndex: 1,
-        willChange: "transform", // promote to GPU layer
+        pointerEvents: "none",
+        transform: "translate3d(0, 0, 0)",
+        WebkitTransform: "translate3d(0, 0, 0)",
       }}
     >
       <canvas
         ref={canvasRef}
         style={{
           position: "absolute",
-          inset: 0,
+          top: 0,
+          left: 0,
           width: "100%",
           height: "100%",
           display: "block",
