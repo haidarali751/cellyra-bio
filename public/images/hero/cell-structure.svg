@@ -1,0 +1,117 @@
+<svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cellGradient" cx="0%" cy="0%" r="100%">
+      <stop offset="0%" style="stop-color:#1A1F2E;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#0D1117;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#08090B;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="nucleusGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#B7FFB1;stop-opacity:0.4" />
+      <stop offset="50%" style="stop-color:#8FFFA0;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#4ECDC4;stop-opacity:0" />
+    </radialGradient>
+    <radialGradient id="organelleGlow" cx="30%" cy="30%" r="60%">
+      <stop offset="0%" style="stop-color:#B7FFB1;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#4ECDC4;stop-opacity:0.1" />
+    </radialGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="innerGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  
+  <!-- Cell membrane background -->
+  <ellipse cx="300" cy="200" rx="280" ry="180" fill="url(#cellGradient)" stroke="#B7FFB1" stroke-width="1.5" opacity="0.3" filter="url(#softGlow)"/>
+  
+  <!-- Cytoplasm texture -->
+  <ellipse cx="300" cy="200" rx="260" ry="165" fill="#0D1117" opacity="0.6"/>
+  
+  <!-- Mitochondria -->
+  <g filter="url(#innerGlow)">
+    <ellipse cx="180" cy="140" rx="35" ry="18" fill="#1E2A1E" stroke="#B7FFB1" stroke-width="1" opacity="0.7"/>
+    <ellipse cx="180" cy="140" rx="28" ry="12" fill="#B7FFB1" opacity="0.15"/>
+    <path d="M160 140 Q180 130 180 140 Q180 150 160 140" stroke="#B7FFB1" stroke-width="0.8" fill="none" opacity="0.5"/>
+    <path d="M160 140 Q180 135 180 140 Q180 145 160 140" stroke="#B7FFB1" stroke-width="0.8" fill="none" opacity="0.5"/>
+    <path d="M160 140 Q180 140 180 140 Q180 140 160 140" stroke="#B7FFB1" stroke-width="0.8" fill="none" opacity="0.5"/>
+  </g>
+  
+  <g filter="url(#innerGlow)">
+    <ellipse cx="420" cy="280" rx="40" ry="20" fill="#1E2A1E" stroke="#B7FFB1" stroke-width="1" opacity="0.7"/>
+    <ellipse cx="420" cy="280" rx="32" ry="14" fill="#B7FFB1" opacity="0.15"/>
+    <path d="M400 280 Q420 270 420 280 Q420 290 400 280" stroke="#B7FFB1" stroke-width="0.8" fill="none" opacity="0.5"/>
+    <path d="M400 280 Q420 275 420 280 Q420 285 400 280" stroke="#B7FFB1" stroke-width="0.8" fill="none" opacity="0.5"/>
+    <path d="M400 280 Q420 280 420 280 Q420 280 400 280" stroke="#B7FFB1" stroke-width="0.8" fill="none" opacity="0.5"/>
+  </g>
+  
+  <!-- Endoplasmic Reticulum -->
+  <g stroke="#4ECDC4" stroke-width="1.5" fill="none" opacity="0.6" filter="url(#softGlow)">
+    <path d="M120 200 Q180 180 220 200 Q260 220 300 200 Q340 180 400 200"/>
+    <path d="M120 230 Q180 210 220 230 Q260 250 300 230 Q340 210 400 230"/>
+    <path d="M120 170 Q180 150 220 170 Q260 190 300 170 Q340 150 400 170"/>
+  </g>
+  
+  <!-- Ribosomes (small dots) -->
+  <g fill="#B7FFB1" opacity="0.4">
+    <circle cx="150" cy="190" r="2.5"/>
+    <circle cx="170" cy="210" r="2"/>
+    <circle cx="190" cy="180" r="2.5"/>
+    <circle cx="250" cy="220" r="2"/>
+    <circle cx="270" cy="195" r="2.5"/>
+    <circle cx="290" cy="215" r="2"/>
+    <circle cx="330" cy="185" r="2.5"/>
+    <circle cx="350" cy="210" r="2"/>
+    <circle cx="370" cy="195" r="2.5"/>
+    <circle cx="390" cy="225" r="2"/>
+  </g>
+  
+  <!-- Golgi Apparatus -->
+  <g fill="none" stroke="#8FFFA0" stroke-width="1.5" opacity="0.7" filter="url(#softGlow)">
+    <path d="M450 130 Q470 125 490 130 Q500 135 490 140 Q470 145 450 140 Z"/>
+    <path d="M450 145 Q470 140 490 145 Q500 150 490 155 Q470 160 450 155 Z"/>
+    <path d="M450 160 Q470 155 490 160 Q500 165 490 170 Q470 175 450 170 Z"/>
+    <path d="M450 175 Q470 170 490 175 Q500 180 490 185 Q470 190 450 185 Z"/>
+  </g>
+  
+  <!-- Nucleus -->
+  <ellipse cx="300" cy="200" rx="70" ry="55" fill="url(#nucleusGlow)" stroke="#B7FFB1" stroke-width="1.5" opacity="0.4" filter="url(#softGlow)"/>
+  <ellipse cx="300" cy="200" rx="62" ry="48" fill="#0D1117" opacity="0.8"/>
+  
+  <!-- Nucleolus -->
+  <ellipse cx="300" cy="200" rx="22" ry="18" fill="#B7FFB1" opacity="0.25" filter="url(#softGlow)"/>
+  <ellipse cx="300" cy="200" rx="16" ry="13" fill="#B7FFB1" opacity="0.4"/>
+  
+  <!-- Chromatin fibers -->
+  <g stroke="#B7FFB1" stroke-width="0.8" fill="none" opacity="0.3">
+    <path d="M260 180 Q270 175 285 180 Q295 185 300 180"/>
+    <path d="M260 200 Q275 195 290 200 Q305 205 320 200"/>
+    <path d="M260 220 Q270 225 285 220 Q295 215 300 220"/>
+    <path d="M320 175 Q335 170 350 175 Q360 180 370 180"/>
+    <path d="M320 195 Q335 200 350 195 Q360 190 370 195"/>
+    <path d="M320 215 Q335 220 350 215 Q360 225 370 215"/>
+  </g>
+  
+  <!-- Microtubules -->
+  <g stroke="#4ECDC4" stroke-width="1.2" fill="none" opacity="0.4" stroke-dasharray="6,4">
+    <line x1="200" y1="280" x2="150" y2="350"/>
+    <line x1="220" y1="290" x2="140" y2="380"/>
+    <line x1="380" y1="290" x2="450" y2="360"/>
+    <line x1="400" y1="280" x2="460" y2="350"/>
+  </g>
+  
+  <!-- Floating particles -->
+  <g fill="#B7FFB1" opacity="0.3">
+    <circle cx="100" cy="80" r="1.5"/>
+    <circle cx="500" cy="60" r="1"/>
+    <circle cx="80" cy="320" r="2"/>
+    <circle cx="520" cy="340" r="1.5"/>
+    <circle cx="150" cy="360" r="1"/>
+    <circle cx="450" cy="380" r="1.5"/>
+  </g>
+</svg>

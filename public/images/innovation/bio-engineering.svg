@@ -1,0 +1,149 @@
+<svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="innoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#08090B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0D1117;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="innoGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#B7FFB1;stop-opacity:0.35" />
+      <stop offset="100%" style="stop-color:#B7FFB1;stop-opacity:0" />
+    </radialGradient>
+    <linearGradient id="engineeredGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#B7FFB1;stop-opacity:0.9" />
+      <stop offset="50%" style="stop-color:#8FFFA0;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#4ECDC4;stop-opacity:0.5" />
+    </linearGradient>
+    <filter id="innoGlowFilter" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="600" height="400" fill="url(#innoGradient)"/>
+  
+  <!-- Background scientific grid -->
+  <g stroke="#B7FFB1" stroke-width="0.3" opacity="0.04">
+    <line x1="0" y1="0" x2="600" y2="0"/>
+    <line x1="0" y1="40" x2="600" y2="40"/>
+    <line x1="0" y1="80" x2="600" y2="80"/>
+    <line x1="0" y1="120" x2="600" y2="120"/>
+    <line x1="0" y1="160" x2="600" y2="160"/>
+    <line x1="0" y1="200" x2="600" y2="200"/>
+    <line x1="0" y1="240" x2="600" y2="240"/>
+    <line x1="0" y1="280" x2="600" y2="280"/>
+    <line x1="0" y1="320" x2="600" y2="320"/>
+    <line x1="0" y1="360" x2="600" y2="360"/>
+    <line x1="0" y1="400" x2="600" y2="400"/>
+    <line x1="0" y1="0" x2="0" y2="400"/>
+    <line x1="50" y1="0" x2="50" y2="400"/>
+    <line x1="100" y1="0" x2="100" y2="400"/>
+    <line x1="150" y1="0" x2="150" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="400"/>
+    <line x1="250" y1="0" x2="250" y2="400"/>
+    <line x1="300" y1="0" x2="300" y2="400"/>
+    <line x1="350" y1="0" x2="350" y2="400"/>
+    <line x1="400" y1="0" x2="400" y2="400"/>
+    <line x1="450" y1="0" x2="450" y2="400"/>
+    <line x1="500" y1="0" x2="500" y2="400"/>
+    <line x1="550" y1="0" x2="550" y2="400"/>
+    <line x1="600" y1="0" x2="600" y2="400"/>
+  </g>
+  
+  <!-- Left side: Natural biology (organic, flowing) -->
+  <g transform="translate(130, 200)" filter="url(#innoGlowFilter)">
+    <!-- Organic cell-like forms -->
+    <ellipse cx="-40" cy="-60" rx="45" ry="35" fill="url(#innoGlow)" stroke="#B7FFB1" stroke-width="1.5" opacity="0.25"/>
+    <ellipse cx="40" cy="-20" rx="35" ry="45" fill="url(#innoGlow)" stroke="#8FFFA0" stroke-width="1.5" opacity="0.2"/>
+    <ellipse cx="-20" cy="50" rx="50" ry="30" fill="url(#innoGlow)" stroke="#4ECDC4" stroke-width="1.5" opacity="0.18"/>
+    <ellipse cx="50" cy="30" rx="30" ry="40" fill="url(#innoGlow)" stroke="#B7FFB1" stroke-width="1.5" opacity="0.22"/>
+    
+    <!-- Connecting organic filaments -->
+    <g stroke="#B7FFB1" stroke-width="1.5" fill="none" opacity="0.4" stroke-linecap="round">
+      <path d="M-40,-60 Q0,-40 40,-20"/>
+      <path d="M40,-20 Q20,15 -20,50"/>
+      <path d="M-20,50 Q15,40 50,30"/>
+      <path d="M50,30 Q-10,-10 -40,-60"/>
+    </g>
+    
+    <!-- Internal organelles -->
+    <g fill="#B7FFB1" opacity="0.3">
+      <circle cx="-40" cy="-60" r="8"/>
+      <circle cx="40" cy="-20" r="10"/>
+      <circle cx="-20" cy="50" r="12"/>
+      <circle cx="50" cy="30" r="7"/>
+    </g>
+  </g>
+  
+  <!-- Right side: Engineered biology (geometric, precise) -->
+  <g transform="translate(450, 200)" filter="url(#innoGlowFilter)">
+    <!-- Geometric engineered structures -->
+    <rect x="-45" y="-75" width="90" height="50" rx="4" fill="url(#innoGlow)" stroke="#B7FFB1" stroke-width="1.5" opacity="0.3"/>
+    <rect x="-45" y="25" width="90" height="50" rx="4" fill="url(#innoGlow)" stroke="#8FFFA0" stroke-width="1.5" opacity="0.25"/>
+    
+    <polygon points="0,-95 -40,-55 -40,-15 0,25 40,-15 40,-55" fill="url(#innoGlow)" stroke="#4ECDC4" stroke-width="1.5" opacity="0.28"/>
+    <polygon points="0,75 -40,35 -40,-5 0,-45 40,-5 40,35" fill="url(#innoGlow)" stroke="#B7FFB1" stroke-width="1.5" opacity="0.25"/>
+    
+    <!-- Precision connections -->
+    <g stroke="url(#engineeredGradient)" stroke-width="2" fill="none" opacity="0.6" stroke-linecap="round">
+      <line x1="-45" y1="-50" x2="-45" y2="50"/>
+      <line x1="45" y1="-50" x2="45" y2="50"/>
+      <line x1="-45" y1="-25" x2="0" y2="-80"/>
+      <line x1="45" y1="-25" x2="0" y2="-80"/>
+      <line x1="-45" y1="50" x2="0" y2="100"/>
+      <line x1="45" y1="50" x2="0" y2="100"/>
+    </g>
+    
+    <!-- Control nodes -->
+    <g fill="#B7FFB1" opacity="0.8">
+      <rect x="-50" y="-80" width="10" height="10" rx="2"/>
+      <rect x="40" y="-80" width="10" height="10" rx="2"/>
+      <rect x="-50" y="70" width="10" height="10" rx="2"/>
+      <rect x="40" y="70" width="10" height="10" rx="2"/>
+      <rect x="-5" y="-95" width="10" height="10" rx="2"/>
+      <rect x="-5" y="85" width="10" height="10" rx="2"/>
+    </g>
+  </g>
+  
+  <!-- Central transformation arrow -->
+  <g transform="translate(300, 200)" filter="url(#innoGlowFilter)">
+    <!-- Main transformation arrow -->
+    <path d="M-80,0 L-20,0 M-30,-10 L-20,0 L-30,10" stroke="url(#engineeredGradient)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
+    <path d="M20,0 L80,0 M70,-10 L80,0 L70,10" stroke="url(#engineeredGradient)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
+    
+    <!-- Transformation label -->
+    <text x="0" y="-25" font-family="monospace" font-size="10" fill="#B7FFB1" text-anchor="middle" letter-spacing="0.2em" opacity="0.7">ENGINEER</text>
+    <text x="0" y="-12" font-family="monospace" font-size="10" fill="#8FFFA0" text-anchor="middle" letter-spacing="0.2em" opacity="0.7">BIOLOGY</text>
+    
+    <!-- Bidirectional flow particles -->
+    <g fill="#B7FFB1" opacity="0.6">
+      <circle cx="-50" cy="0" r="3"/>
+      <circle cx="-35" cy="0" r="2"/>
+      <circle cx="35" cy="0" r="2"/>
+      <circle cx="50" cy="0" r="3"/>
+    </g>
+  </g>
+  
+  <!-- Phase labels -->
+  <g font-family="monospace" font-size="9" fill="#8B918E" opacity="0.6">
+    <text x="130" y="380" text-anchor="middle">DISCOVER</text>
+    <text x="300" y="380" text-anchor="middle">DESIGN</text>
+    <text x="470" y="380" text-anchor="middle">ENGINEER</text>
+  </g>
+  
+  <!-- Top labels -->
+  <g font-family="monospace" font-size="9" fill="#B7FFB1" opacity="0.5">
+    <text x="130" y="40" text-anchor="middle">NATURAL</text>
+    <text x="470" y="40" text-anchor="middle">ENGINEERED</text>
+  </g>
+  
+  <!-- Floating measurement annotations -->
+  <g font-family="monospace" font-size="8" fill="#4ECDC4" opacity="0.3">
+    <text x="50" y="390">WT sequence</text>
+    <text x="550" y="390">Optimized variant</text>
+    <text x="50" y="400">ΔΔG = -2.3 kcal/mol</text>
+    <text x="550" y="400">Expression: 5.2x</text>
+  </g>
+</svg>

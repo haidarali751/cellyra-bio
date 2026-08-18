@@ -1,0 +1,122 @@
+<svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="impactGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#08090B;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0D1117;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111318;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="impactGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#B7FFB1;stop-opacity:0.4" />
+      <stop offset="70%" style="stop-color:#8FFFA0;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#4ECDC4;stop-opacity:0" />
+    </radialGradient>
+    <filter id="impactGlowFilter" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="pulseGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="600" height="400" fill="url(#impactGradient)"/>
+  
+  <!-- Central impact visualization -->
+  <g transform="translate(300, 200)" filter="url(#impactGlowFilter)">
+    <!-- Outer ripple rings -->
+    <g fill="none" stroke="#B7FFB1" stroke-width="1" opacity="0.15">
+      <circle cx="0" cy="0" r="160"/>
+      <circle cx="0" cy="0" r="130"/>
+      <circle cx="0" cy="0" r="100"/>
+      <circle cx="0" cy="0" r="70"/>
+    </g>
+    
+    <!-- Main impact rings with glow -->
+    <g fill="none" stroke-width="2" filter="url(#pulseGlow)">
+      <circle cx="0" cy="0" r="50" stroke="#B7FFB1" opacity="0.6"/>
+      <circle cx="0" cy="0" r="80" stroke="#8FFFA0" opacity="0.4"/>
+      <circle cx="0" cy="0" r="110" stroke="#4ECDC4" opacity="0.25"/>
+    </g>
+    
+    <!-- Central core -->
+    <circle cx="0" cy="0" r="35" fill="url(#impactGlow)" stroke="#B7FFB1" stroke-width="2" opacity="0.5"/>
+    <circle cx="0" cy="0" r="22" fill="#B7FFB1" opacity="0.2"/>
+    <circle cx="0" cy="0" r="12" fill="#B7FFB1" opacity="0.5"/>
+    <circle cx="0" cy="0" r="6" fill="#B7FFB1" opacity="1"/>
+  </g>
+  
+  <!-- Four impact quadrants with metrics -->
+  <!-- Top Left: Prediction Accuracy -->
+  <g transform="translate(100, 100)" filter="url(#impactGlowFilter)">
+    <rect x="-70" y="-70" width="140" height="140" rx="20" fill="#111318" stroke="#B7FFB1" stroke-width="1" opacity="0.3"/>
+    <circle cx="0" cy="-10" r="35" fill="url(#impactGlow)" stroke="#B7FFB1" stroke-width="1.5" opacity="0.3"/>
+    <text x="0" y="0" font-family="monospace" font-size="28" font-weight="700" fill="#B7FFB1" text-anchor="middle">98%</text>
+    <text x="0" y="25" font-family="monospace" font-size="10" fill="#8B918E" text-anchor="middle" letter-spacing="0.15em">PREDICTION</text>
+    <text x="0" y="38" font-family="monospace" font-size="10" fill="#8B918E" text-anchor="middle" letter-spacing="0.15em">ACCURACY</text>
+    <text x="0" y="58" font-family="monospace" font-size="8" fill="#B7FFB1" text-anchor="middle" opacity="0.6">AUC-ROC: 0.982</text>
+  </g>
+  
+  <!-- Top Right: Research Programs -->
+  <g transform="translate(500, 100)" filter="url(#impactGlowFilter)">
+    <rect x="-70" y="-70" width="140" height="140" rx="20" fill="#111318" stroke="#8FFFA0" stroke-width="1" opacity="0.3"/>
+    <circle cx="0" cy="-10" r="35" fill="url(#impactGlow)" stroke="#8FFFA0" stroke-width="1.5" opacity="0.3"/>
+    <text x="0" y="0" font-family="monospace" font-size="28" font-weight="700" fill="#8FFFA0" text-anchor="middle">42+</text>
+    <text x="0" y="25" font-family="monospace" font-size="10" fill="#8B918E" text-anchor="middle" letter-spacing="0.15em">RESEARCH</text>
+    <text x="0" y="38" font-family="monospace" font-size="10" fill="#8B918E" text-anchor="middle" letter-spacing="0.15em">PROGRAMS</text>
+    <text x="0" y="58" font-family="monospace" font-size="8" fill="#8FFFA0" text-anchor="middle" opacity="0.6">Active pipelines</text>
+  </g>
+  
+  <!-- Bottom Left: Data Points -->
+  <g transform="translate(100, 300)" filter="url(#impactGlowFilter)">
+    <rect x="-70" y="-70" width="140" height="140" rx="20" fill="#111318" stroke="#4ECDC4" stroke-width="1" opacity="0.3"/>
+    <circle cx="0" cy="-10" r="35" fill="url(#impactGlow)" stroke="#4ECDC4" stroke-width="1.5" opacity="0.3"/>
+    <text x="0" y="0" font-family="monospace" font-size="24" font-weight="700" fill="#4ECDC4" text-anchor="middle">12M+</text>
+    <text x="0" y="25" font-family="monospace" font-size="10" fill="#8B918E" text-anchor="middle" letter-spacing="0.15em">DATA POINTS</text>
+    <text x="0" y="38" font-family="monospace" font-size="10" fill="#8B918E" text-anchor="middle" letter-spacing="0.15em">ANALYZED</text>
+    <text x="0" y="58" font-family="monospace" font-size="8" fill="#4ECDC4" text-anchor="middle" opacity="0.6">Multi-modal datasets</text>
+  </g>
+  
+  <!-- Bottom Right: Global Partners -->
+  <g transform="translate(500, 300)" filter="url(#impactGlowFilter)">
+    <rect x="-70" y="-70" width="140" height="140" rx="20" fill="#111318" stroke="#B7FFB1" stroke-width="1" opacity="0.3"/>
+    <circle cx="0" cy="-10" r="35" fill="url(#impactGlow)" stroke="#B7FFB1" stroke-width="1.5" opacity="0.3"/>
+    <text x="0" y="0" font-family="monospace" font-size="28" font-weight="700" fill="#B7FFB1" text-anchor="middle">24</text>
+    <text x="0" y="25" font-family="monospace" font-size="10" fill="#8B918E" text-anchor="middle" letter-spacing="0.15em">GLOBAL</text>
+    <text x="0" y="38" font-family="monospace" font-size="10" fill="#8B918E" text-anchor="middle" letter-spacing="0.15em">PARTNERS</text>
+    <text x="0" y="58" font-family="monospace" font-size="8" fill="#B7FFB1" text-anchor="middle" opacity="0.6">Institutions & pharma</text>
+  </g>
+  
+  <!-- Connecting lines from center to quadrants -->
+  <g stroke="#B7FFB1" stroke-width="1" opacity="0.15" stroke-dasharray="8,6">
+    <line x1="300" y1="200" x2="100" y2="100"/>
+    <line x1="300" y1="200" x2="500" y2="100"/>
+    <line x1="300" y1="200" x2="100" y2="300"/>
+    <line x1="300" y1="200" x2="500" y2="300"/>
+  </g>
+  
+  <!-- Floating data particles -->
+  <g fill="#B7FFB1" opacity="0.4">
+    <circle cx="200" cy="50" r="1.5"/>
+    <circle cx="400" cy="60" r="1"/>
+    <circle cx="150" cy="350" r="2"/>
+    <circle cx="450" cy="340" r="1.5"/>
+    <circle cx="50" cy="200" r="1"/>
+    <circle cx="550" cy="200" r="1.5"/>
+    <circle cx="300" cy="30" r="1"/>
+    <circle cx="300" cy="370" r="1.5"/>
+  </g>
+  
+  <!-- Timeline/milestone indicators -->
+  <g font-family="monospace" font-size="8" fill="#8B918E" opacity="0.4">
+    <text x="50" y="390">2021: Foundation</text>
+    <text x="250" y="390">2023: Breakthrough</text>
+    <text x="450" y="390">2026: Scale</text>
+  </g>
+</svg>

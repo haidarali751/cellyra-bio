@@ -1,0 +1,604 @@
+@import "tailwindcss";
+
+:root,
+html.dark,
+[data-theme="dark"] {
+  /* ── Night / Dark Mode Backgrounds ── */
+  --cellyra-bg: #07080c;
+  --cellyra-surface: #0e1118;
+  --cellyra-surface-elevated: #161b26;
+
+  /* ── Text ── */
+  --cellyra-text: #ffffff;
+  --cellyra-muted: #94a3b8;
+  --cellyra-subtle: #475569;
+
+  /* ── Primary accent: Pure Silver / Platinum White ── */
+  --cellyra-silver: #f8fafc;
+  --cellyra-silver-bright: #ffffff;
+  --cellyra-silver-dim: #cbd5e1;
+
+  /* ── Secondary accent: Ice Platinum ── */
+  --cellyra-ice: #e2e8f0;
+  --cellyra-ice-bright: #ffffff;
+  --cellyra-ice-dim: #94a3b8;
+
+  /* ── Subtle Accent: Hyper Silver ── */
+  --cellyra-accent: #f1f5f9;
+  --cellyra-accent-bright: #ffffff;
+  --cellyra-accent-dim: #64748b;
+
+  /* ── Borders ── */
+  --cellyra-border: rgba(255, 255, 255, 0.12);
+  --cellyra-silver-border: rgba(255, 255, 255, 0.28);
+  --cellyra-ice-border: rgba(226, 232, 240, 0.2);
+
+  /* ── Radii ── */
+  --cellyra-radius-sm: 8px;
+  --cellyra-radius-md: 16px;
+  --cellyra-radius-lg: 24px;
+  --cellyra-radius-xl: 32px;
+
+  /* ── Transitions ── */
+  --cellyra-transition-fast: 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  --cellyra-transition-base: 500ms cubic-bezier(0.22, 1, 0.36, 1);
+  --cellyra-transition-slow: 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.light,
+[data-theme="light"] {
+  /* ── Day / Light Mode Backgrounds ── */
+  --cellyra-bg: #f8fafc;
+  --cellyra-surface: #ffffff;
+  --cellyra-surface-elevated: #f1f5f9;
+
+  /* ── Text ── */
+  --cellyra-text: #090d16;
+  --cellyra-muted: #475569;
+  --cellyra-subtle: #94a3b8;
+
+  /* ── Primary accent: Deep Obsidian & Slate ── */
+  --cellyra-silver: #090d16;
+  --cellyra-silver-bright: #000000;
+  --cellyra-silver-dim: #334155;
+
+  /* ── Secondary accent: Cool Slate ── */
+  --cellyra-ice: #1e293b;
+  --cellyra-ice-bright: #0f172a;
+  --cellyra-ice-dim: #64748b;
+
+  /* ── Subtle Accent: Platinum Ink ── */
+  --cellyra-accent: #334155;
+  --cellyra-accent-bright: #090d16;
+  --cellyra-accent-dim: #cbd5e1;
+
+  /* ── Borders ── */
+  --cellyra-border: rgba(0, 0, 0, 0.09);
+  --cellyra-silver-border: rgba(0, 0, 0, 0.22);
+  --cellyra-ice-border: rgba(30, 41, 59, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto !important;
+  background: var(--cellyra-bg);
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  margin: 0;
+  background: var(--cellyra-bg);
+  color: var(--cellyra-text);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.font-heading {
+  font-family: var(--font-heading), var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-sans {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.font-serif {
+  font-family: var(--font-serif), Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--cellyra-text);
+  color: var(--cellyra-bg);
+}
+
+/* -----------------------------------------
+   Scrollbar
+----------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cellyra-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cellyra-border);
+  border-radius: 999px;
+  border: 1px solid var(--cellyra-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cellyra-silver-border);
+}
+
+/* -----------------------------------------
+   Global utility & Typography Hierarchy
+----------------------------------------- */
+
+.cellyra-border {
+  border-color: var(--cellyra-border);
+}
+
+.cellyra-muted {
+  color: var(--cellyra-muted);
+}
+
+/* Premium glass morphism */
+.cellyra-glass {
+  background: var(--cellyra-surface);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--cellyra-border);
+}
+
+/* -----------------------------------------
+   Section
+----------------------------------------- */
+
+.cellyra-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--cellyra-bg);
+}
+
+/* -----------------------------------------
+   Editorial typography hierarchy tokens
+----------------------------------------- */
+
+.cellyra-display {
+  font-family: var(--font-heading), var(--font-inter), sans-serif;
+  font-size: clamp(3.2rem, 8.5vw, 8.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+  font-weight: 600;
+}
+
+.cellyra-h2 {
+  font-family: var(--font-heading), var(--font-inter), sans-serif;
+  font-size: clamp(2.4rem, 5.5vw, 4.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+}
+
+.cellyra-h3 {
+  font-family: var(--font-heading), var(--font-inter), sans-serif;
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+}
+
+.cellyra-lead {
+  font-family: var(--font-inter), sans-serif;
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.75;
+  color: var(--cellyra-muted);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.cellyra-eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--cellyra-text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cellyra-pill {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--cellyra-border);
+  background: var(--cellyra-surface);
+  color: var(--cellyra-text);
+  transition: all var(--cellyra-transition-fast);
+}
+
+.cellyra-pill:hover {
+  border-color: var(--cellyra-silver-border);
+  background: var(--cellyra-surface-elevated);
+}
+
+/* Premium gradient text */
+.cellyra-gradient-text {
+  background: linear-gradient(135deg, var(--cellyra-text) 0%, var(--cellyra-muted) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cellyra-gradient-text-subtle {
+  background: linear-gradient(135deg, var(--cellyra-text) 30%, var(--cellyra-subtle) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* -----------------------------------------
+   Subtle noise (Lightweight & zero CPU cost)
+----------------------------------------- */
+
+.cellyra-noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.018;
+  z-index: 1;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.cellyra-noise-fine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.012;
+  z-index: 1;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 0);
+  background-size: 16px 16px;
+}
+
+/* -----------------------------------------
+   Glows
+----------------------------------------- */
+
+.cellyra-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 999px;
+  background: radial-gradient(circle at center, rgba(0, 255, 163, 0.1) 0%, rgba(0, 212, 255, 0.04) 50%, transparent 70%);
+  filter: blur(140px);
+  pointer-events: none;
+}
+
+.cellyra-glow-violet {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 999px;
+  background: radial-gradient(circle at center, rgba(168, 85, 247, 0.1) 0%, rgba(168, 85, 247, 0.02) 50%, transparent 70%);
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+.cellyra-glow-cyan {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 999px;
+  background: radial-gradient(circle at center, rgba(0, 212, 255, 0.08) 0%, rgba(0, 212, 255, 0.01) 50%, transparent 70%);
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+/* -----------------------------------------
+   Buttons
+----------------------------------------- */
+
+.cellyra-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  border-radius: 999px;
+  padding: 0.9rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition:
+    transform var(--cellyra-transition-base),
+    background-color var(--cellyra-transition-base),
+    border-color var(--cellyra-transition-base),
+    color var(--cellyra-transition-base),
+    box-shadow var(--cellyra-transition-base);
+}
+
+.cellyra-button:hover {
+  transform: translateY(-2px);
+}
+
+.cellyra-button:active {
+  transform: translateY(0);
+}
+
+.cellyra-button-primary {
+  background: #ffffff;
+  color: #07080c;
+  font-weight: 600;
+  box-shadow: 0 4px 25px rgba(255, 255, 255, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
+.cellyra-button-primary:hover {
+  background: #f1f5f9;
+  box-shadow: 0 8px 35px rgba(255, 255, 255, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+html.light .cellyra-button-primary {
+  background: #090d16;
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+html.light .cellyra-button-primary:hover {
+  background: #1e293b;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+.cellyra-button-secondary {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+}
+
+.cellyra-button-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.12);
+}
+
+html.light .cellyra-button-secondary {
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  color: #090d16;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+html.light .cellyra-button-secondary:hover {
+  border-color: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.07);
+  color: #000000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+html.light .cellyra-noise {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.12) 1px, transparent 0);
+}
+
+.cellyra-button-premium {
+  background: linear-gradient(135deg, var(--cellyra-violet) 0%, var(--cellyra-cyan) 100%);
+  color: white;
+  border: none;
+  box-shadow:
+    0 4px 24px rgba(168, 85, 247, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.cellyra-button-premium:hover {
+  box-shadow:
+    0 8px 40px rgba(168, 85, 247, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+/* -----------------------------------------
+   Cards
+----------------------------------------- */
+
+.cellyra-card {
+  background: var(--cellyra-surface);
+  border: 1px solid var(--cellyra-border);
+  border-radius: var(--cellyra-radius-lg);
+  padding: 1.5rem;
+  transition:
+    border-color var(--cellyra-transition-base),
+    background-color var(--cellyra-transition-base),
+    transform var(--cellyra-transition-base),
+    box-shadow var(--cellyra-transition-base);
+}
+
+.cellyra-card:hover {
+  border-color: var(--cellyra-violet-border);
+  background: var(--cellyra-surface-elevated);
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 48px rgba(0, 0, 0, 0.4),
+    0 0 0 1px var(--cellyra-violet-border),
+    0 0 40px rgba(168, 85, 247, 0.06);
+}
+
+/* -----------------------------------------
+   Reveal animations
+----------------------------------------- */
+
+.cellyra-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cellyra-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cellyra-reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cellyra-reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0ms; }
+.cellyra-reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 80ms; }
+.cellyra-reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 160ms; }
+.cellyra-reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 240ms; }
+.cellyra-reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 320ms; }
+.cellyra-reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 400ms; }
+
+/* -----------------------------------------
+   Reduced motion
+----------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .cellyra-reveal,
+  .cellyra-reveal-stagger > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* -----------------------------------------
+   Mobile
+----------------------------------------- */
+
+@media (max-width: 640px) {
+  .cellyra-glow {
+    width: 350px;
+    height: 350px;
+    filter: blur(100px);
+  }
+
+  .cellyra-glow-violet {
+    width: 300px;
+    height: 300px;
+    filter: blur(80px);
+  }
+}
+
+/* -----------------------------------------
+   Focus styles
+----------------------------------------- */
+
+:focus-visible {
+  outline: 2px solid var(--cellyra-green);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* -----------------------------------------
+   Image optimization
+----------------------------------------- */
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cellyra-image-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--cellyra-radius-lg);
+  background: var(--cellyra-surface);
+}
+
+.cellyra-image-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(0, 255, 163, 0.03) 50%, rgba(168, 85, 247, 0.03) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* -----------------------------------------
+   Aurora border animation
+----------------------------------------- */
+
+@keyframes aurora-border {
+  0%   { border-color: rgba(0, 255, 163, 0.4); box-shadow: 0 0 24px rgba(0, 255, 163, 0.2); }
+  33%  { border-color: rgba(168, 85, 247, 0.4); box-shadow: 0 0 24px rgba(168, 85, 247, 0.2); }
+  66%  { border-color: rgba(0, 212, 255, 0.4); box-shadow: 0 0 24px rgba(0, 212, 255, 0.2); }
+  100% { border-color: rgba(0, 255, 163, 0.4); box-shadow: 0 0 24px rgba(0, 255, 163, 0.2); }
+}
+
+.cellyra-aurora-border {
+  animation: aurora-border 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.cellyra-float {
+  animation: float 6s ease-in-out infinite;
+}

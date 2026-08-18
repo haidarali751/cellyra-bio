@@ -1,0 +1,152 @@
+<svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tech2Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#08090B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0D1117;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="tech2Glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#B7FFB1;stop-opacity:0.35" />
+      <stop offset="100%" style="stop-color:#B7FFB1;stop-opacity:0" />
+    </radialGradient>
+    <linearGradient id="pipelineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#B7FFB1;stop-opacity:0.9" />
+      <stop offset="33%" style="stop-color:#8FFFA0;stop-opacity:0.7" />
+      <stop offset="66%" style="stop-color:#4ECDC4;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#B7FFB1;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="tech2GlowFilter" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="600" height="400" fill="url(#tech2Gradient)"/>
+  
+  <!-- Grid background -->
+  <g stroke="#B7FFB1" stroke-width="0.3" opacity="0.04">
+    <line x1="0" y1="0" x2="600" y2="0"/>
+    <line x1="0" y1="40" x2="600" y2="40"/>
+    <line x1="0" y1="80" x2="600" y2="80"/>
+    <line x1="0" y1="120" x2="600" y2="120"/>
+    <line x1="0" y1="160" x2="600" y2="160"/>
+    <line x1="0" y1="200" x2="600" y2="200"/>
+    <line x1="0" y1="240" x2="600" y2="240"/>
+    <line x1="0" y1="280" x2="600" y2="280"/>
+    <line x1="0" y1="320" x2="600" y2="320"/>
+    <line x1="0" y1="360" x2="600" y2="360"/>
+    <line x1="0" y1="400" x2="600" y2="400"/>
+    <line x1="0" y1="0" x2="0" y2="400"/>
+    <line x1="50" y1="0" x2="50" y2="400"/>
+    <line x1="100" y1="0" x2="100" y2="400"/>
+    <line x1="150" y1="0" x2="150" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="400"/>
+    <line x1="250" y1="0" x2="250" y2="400"/>
+    <line x1="300" y1="0" x2="300" y2="400"/>
+    <line x1="350" y1="0" x2="350" y2="400"/>
+    <line x1="400" y1="0" x2="400" y2="400"/>
+    <line x1="450" y1="0" x2="450" y2="400"/>
+    <line x1="500" y1="0" x2="500" y2="400"/>
+    <line x1="550" y1="0" x2="550" y2="400"/>
+    <line x1="600" y1="0" x2="600" y2="400"/>
+  </g>
+  
+  <!-- Technology pipeline stages -->
+  <g transform="translate(50, 200)" filter="url(#tech2GlowFilter)">
+    <!-- Stage 1: Discovery -->
+    <g class="stage">
+      <rect x="0" y="-60" width="120" height="120" rx="16" fill="#111318" stroke="#B7FFB1" stroke-width="1.5" opacity="0.4"/>
+      <circle cx="60" cy="-10" r="30" fill="url(#tech2Glow)" stroke="#B7FFB1" stroke-width="2" opacity="0.4"/>
+      <text x="60" y="-10" font-family="monospace" font-size="14" fill="#B7FFB1" text-anchor="middle">����</text>
+      <text x="60" y="45" font-family="monospace" font-size="11" fill="#B7FFB1" text-anchor="middle" font-weight="600">DISCOVERY</text>
+      <text x="60" y="60" font-family="monospace" font-size="8" fill="#8B918E" text-anchor="middle">Target ID</text>
+      <text x="60" y="72" font-family="monospace" font-size="8" fill="#8B918E" text-anchor="middle">Pathway map</text>
+      <text x="60" y="84" font-family="monospace" font-size="8" fill="#8B918E" text-anchor="middle">Literature AI</text>
+    </g>
+    
+    <!-- Arrow to next stage -->
+    <path d="M120,40 L150,40 M140,35 L150,40 L140,45" stroke="url(#pipelineGradient)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+  </g>
+  
+  <g transform="translate(200, 200)" filter="url(#tech2GlowFilter)">
+    <!-- Stage 2: Design -->
+    <g class="stage">
+      <rect x="0" y="-60" width="120" height="120" rx="16" fill="#111318" stroke="#8FFFA0" stroke-width="1.5" opacity="0.4"/>
+      <circle cx="60" cy="-10" r="30" fill="url(#tech2Glow)" stroke="#8FFFA0" stroke-width="2" opacity="0.4"/>
+      <text x="60" y="-10" font-family="monospace" font-size="14" fill="#8FFFA0" text-anchor="middle">������</text>
+      <text x="60" y="45" font-family="monospace" font-size="11" fill="#8FFFA0" text-anchor="middle" font-weight="600">DESIGN</text>
+      <text x="60" y="60" font-family="monospace" font-size="8" fill="#8B918E" text-anchor="middle">In silico opt.</text>
+      <text x="60" y="72" font-family="monospace" font-size="8" fill="#8B918E" text-anchor="middle">Structure pred.</text>
+      <text x="60" y="84" font-family="monospace" font-size="8" fill="#8B918E" text-anchor="middle">ML-guided</text>
+    </g>
+    
+    <!-- Arrow to next stage -->
+    <path d="M120,40 L150,40 M140,35 L150,40 L140,45" stroke="url(#pipelineGradient)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+  </g>
+  
+  <g transform="translate(350, 200)" filter="url(#tech2GlowFilter)">
+    <!-- Stage 3: Engineer -->
+    <g class="stage">
+      <rect x="0" y="-60" width="120" height="120" rx="16" fill="#111318" stroke="#4ECDC4" stroke-width="1.5" opacity="0.4"/>
+      <circle cx="60" cy="-10" r="30" fill="url(#tech2Glow)" stroke="#4ECDC4" stroke-width="2" opacity="0.4"/>
+      <text x="60" y="-10" font-family="monospace" font-size="14" fill="#4ECDC4" text-anchor="middle">����</text>
+      <text x="60" y="45" font-family="monospace" font-size="11" fill="#4ECDC4" text-anchor="middle" font-weight="600">ENGINEER</text>
+      <text x="60" y="60" font-family="monospace" font-size="8" fill="#8B918E" text-anchor="middle">DNA synthesis</text>
+      <text x="60" y="72" font-family="monospace" font-size="8" fill="#8B918E" text-anchor="middle">Cell-free test</text>
+      <text x="60" y="84" font-family="monospace" font-size="8" fill="#8B918E" text-anchor="middle">Automation</text>
+    </g>
+    
+    <!-- Arrow to next stage -->
+    <path d="M120,40 L150,40 M140,35 L150,40 L140,45" stroke="url(#pipelineGradient)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+  </g>
+  
+  <g transform="translate(500, 200)" filter="url(#tech2GlowFilter)">
+    <!-- Stage 4: Validate -->
+    <g class="stage">
+      <rect x="0" y="-60" width="120" height="120" rx="16" fill="#111318" stroke="#B7FFB1" stroke-width="1.5" opacity="0.4"/>
+      <circle cx="60" cy="-10" r="30" fill="url(#tech2Glow)" stroke="#B7FFB1" stroke-width="2" opacity="0.4"/>
+      <text x="60" y="-10" font-family="monospace" font-size="14" fill="#B7FFB1" text-anchor="middle">���</text>
+      <text x="60" y="45" font-family="monospace" font-size="11" fill="#B7FFB1" text-anchor="middle" font-weight="600">VALIDATE</text>
+      <text x="60" y="60" font-family="monospace" font-size="8" fill="#8B918E" text-anchor="middle">Assay readout</text>
+      <text x="60" y="72" font-family="monospace" font-size="8" fill="#8B918E" text-anchor="middle">Iterate</text>
+      <text x="60" y="84" font-family="monospace" font-size="8" fill="#8B918E" text-anchor="middle">Deploy</text>
+    </g>
+  </g>
+  
+  <!-- Feedback loop arrow -->
+  <g stroke="url(#pipelineGradient)" stroke-width="1.5" fill="none" opacity="0.4" stroke-dasharray="8,6" stroke-linecap="round">
+    <path d="M560,260 Q560,150 300,150 Q40,150 40,260"/>
+    <path d="M40,260 L50,250 M40,260 L50,270"/>
+  </g>
+  <text x="300" y="130" font-family="monospace" font-size="9" fill="#B7FFB1" text-anchor="middle" opacity="0.5">CONTINUOUS LEARNING LOOP</text>
+  
+  <!-- Infrastructure layer at bottom -->
+  <g transform="translate(300, 360)">
+    <rect x="-250" y="-30" width="500" height="60" rx="8" fill="#111318" stroke="#B7FFB1" stroke-width="1" opacity="0.3"/>
+    <text x="0" y="0" font-family="monospace" font-size="10" fill="#B7FFB1" text-anchor="middle" font-weight="600">INFRASTRUCTURE</text>
+    <text x="0" y="15" font-family="monospace" font-size="8" fill="#8B918E" text-anchor="middle">Cloud compute • GPU clusters • Lab automation • LIMS • Data lake • Version control</text>
+  </g>
+  
+  <!-- Top metrics -->
+  <g font-family="monospace" font-size="9" fill="#B7FFB1" opacity="0.4">
+    <text x="110" y="50" text-anchor="middle">~6 months</text>
+    <text x="260" y="50" text-anchor="middle">~3 months</text>
+    <text x="410" y="50" text-anchor="middle">~2 months</text>
+    <text x="560" y="50" text-anchor="middle">~1 month</text>
+    <text x="110" y="65" text-anchor="middle">cycle time</text>
+    <text x="260" y="65" text-anchor="middle">cycle time</text>
+    <text x="410" y="65" text-anchor="middle">cycle time</text>
+    <text x="560" y="65" text-anchor="middle">cycle time</text>
+  </g>
+  
+  <!-- Floating tech specs -->
+  <g font-family="monospace" font-size="8" fill="#4ECDC4" opacity="0.3">
+    <text x="50" y="390">AlphaFold 3</text>
+    <text x="150" y="390">RosettaFold</text>
+    <text x="280" y="390">ESM-3</text>
+    <text x="400" y="390">DiffDock</text>
+    <text x="500" y="390">OpenFold</text>
+  </g>
+</svg>

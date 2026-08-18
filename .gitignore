@@ -1,0 +1,27 @@
+# Dependencies
+node_modules
+
+# Next.js
+.next
+out
+build
+
+# Production build output
+dist
+
+# Misc
+.DS_Store
+Thumbs.db
+*.log
+
+# Local env files
+.env*.local
+
+# Vercel
+.vercel
+
+# Test coverage
+coverage
+
+# Cache
+.cache
