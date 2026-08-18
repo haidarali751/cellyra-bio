@@ -1,0 +1,79 @@
+<svg width="32" height="32" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      :root {
+        --cellyra-silver-bright: #000000;
+        --cellyra-silver-dim: #334155;
+        --cellyra-subtle: #94a3b8;
+        --cellyra-muted: #475569;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --cellyra-silver-bright: #ffffff;
+          --cellyra-silver-dim: #cbd5e1;
+          --cellyra-subtle: #475569;
+          --cellyra-muted: #94a3b8;
+        }
+      }
+    </style>
+    <!-- Top Facet: High-Reflectance Liquid Platinum -->
+    <linearGradient id="facet-top-grad" x1="12" y1="6" x2="38" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="var(--cellyra-silver-bright)" stop-opacity="1" />
+      <stop offset="60%" stop-color="var(--cellyra-silver-dim)" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="var(--cellyra-subtle)" stop-opacity="0.75" />
+    </linearGradient>
+
+    <!-- Left Spine Facet: Brushed Titanium & Obsidian Depth -->
+    <linearGradient id="facet-spine-grad" x1="6" y1="14" x2="24" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="var(--cellyra-silver-bright)" stop-opacity="0.95" />
+      <stop offset="40%" stop-color="var(--cellyra-silver-dim)" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="var(--cellyra-muted)" stop-opacity="0.4" />
+    </linearGradient>
+
+    <!-- Bottom Facet: Deep Obsidian Reflection -->
+    <linearGradient id="facet-bottom-grad" x1="10" y1="40" x2="38" y2="28" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="var(--cellyra-silver-dim)" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="var(--cellyra-silver-bright)" stop-opacity="1" />
+      <stop offset="100%" stop-color="var(--cellyra-subtle)" stop-opacity="0.6" />
+    </linearGradient>
+
+    <!-- Core Prismatic Node Gradient -->
+    <linearGradient id="facet-core-grad" x1="20" y1="18" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="var(--cellyra-silver-bright)" />
+      <stop offset="100%" stop-color="var(--cellyra-silver-dim)" />
+    </linearGradient>
+
+    <!-- Hairline Edge Specular Highlight -->
+    <linearGradient id="edge-specular" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.5" />
+    </linearGradient>
+  </defs>
+
+  <!-- ── Facet 1: Top Arm of the 'C' Prism ── -->
+  <path d="M 24 6 L 40 15.24 L 32 19.86 L 20 12.93 L 24 6 Z" fill="url(#facet-top-grad)" />
+
+  <!-- ── Facet 2: Left Spine Outer Chamfer ── -->
+  <path d="M 24 6 L 20 12.93 L 12 17.55 L 8 24 L 12 30.45 L 8 24 L 8 15.24 L 24 6 Z" fill="url(#facet-spine-grad)" opacity="0.85" />
+
+  <!-- ── Facet 3: Spine Inner Geometric Ribbon ── -->
+  <path d="M 12 17.55 L 20 22.17 L 20 25.83 L 12 30.45 L 8 24 L 12 17.55 Z" fill="url(#facet-spine-grad)" />
+
+  <!-- ── Facet 4: Bottom Arm of the 'C' Prism ── -->
+  <path d="M 12 30.45 L 20 35.07 L 32 28.14 L 40 32.76 L 24 42 L 8 32.76 L 12 30.45 Z" fill="url(#facet-bottom-grad)" />
+
+  <!-- ── Facet 5: Top Outer Blade (Bevel Edge) ── -->
+  <path d="M 24 6 L 40 15.24 L 38 16.4 L 24 8.32 L 10 16.4 L 8 15.24 L 24 6 Z" fill="url(#edge-specular)" opacity="0.9" />
+
+  <!-- ── Facet 6: Inner Floating Geometric Nucleus (Crystalline Diamond Node) ── -->
+  <path d="M 28 20 L 34 24 L 28 28 L 22 24 Z" fill="url(#facet-core-grad)" />
+
+  <!-- Inner Core Precision Specular Dot -->
+  <circle cx="28" cy="24" r="1.25" fill="var(--cellyra-silver-bright)" opacity="0.75" />
+
+  <!-- Hairline Precision Chamfer Lines -->
+  <line x1="20" y1="12.93" x2="20" y2="35.07" stroke="url(#edge-specular)" stroke-width="0.75" opacity="0.4" />
+  <line x1="20" y1="22.17" x2="28" y2="20" stroke="url(#edge-specular)" stroke-width="0.5" opacity="0.5" />
+  <line x1="20" y1="25.83" x2="28" y2="28" stroke="url(#edge-specular)" stroke-width="0.5" opacity="0.5" />
+</svg>
