@@ -356,7 +356,7 @@ export const Technology = () => {
                     fill
                     className="object-cover transition-transform duration-700 ease-out hover:scale-105"
                     sizes="290px"
-                    priority
+                    quality={75}
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-(--cellyra-surface) via-transparent to-transparent opacity-90" />
 
@@ -464,7 +464,7 @@ export const Technology = () => {
                   fill
                   className="object-cover"
                   sizes="(max-width: 640px) 100vw, 450px"
-                  priority
+                  quality={75}
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-(--cellyra-surface) via-transparent to-transparent opacity-90" />
 

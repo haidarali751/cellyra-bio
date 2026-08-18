@@ -147,8 +147,7 @@ export const Research = () => {
                       : "opacity-50 group-hover:opacity-75"
                       }`}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
-                    quality={95}
-                    priority={program.idx === "01" || program.idx === "02"}
+                    quality={75}
                   />
                 </div>
 

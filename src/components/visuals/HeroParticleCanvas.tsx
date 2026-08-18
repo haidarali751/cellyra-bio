@@ -83,6 +83,7 @@ const HeroParticleCanvas = () => {
     let cachedRect = { left: 0, top: 0 };
     const mouse = { x: -99999, y: -99999 };
     let time = 0;
+    let isMobileDevice = false;
 
     /* ── resize ──────────────────────────────────────────────────── */
     const resize = () => {
@@ -91,6 +92,7 @@ const HeroParticleCanvas = () => {
       cachedRect = { left: rect.left, top: rect.top };
       W = rect.width;
       H = rect.height;
+      isMobileDevice = W < 768;
       canvas!.width = W * dpr;
       canvas!.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -100,8 +102,7 @@ const HeroParticleCanvas = () => {
     /* ── scatter ─────────────────────────────────────────────────── */
     const scatter = () => {
       const isLight = document.documentElement.classList.contains("light");
-      const isMobile = W < 768;
-      const count = isMobile ? 800 : PARTICLE_COUNT;
+      const count = isMobileDevice ? 500 : PARTICLE_COUNT;
       particles = [];
       for (let i = 0; i < count; i++) {
         const hx = Math.random() * W;
@@ -166,8 +167,13 @@ const HeroParticleCanvas = () => {
         p.y += p.vy;
 
         ctx.fillStyle = p.rgba; // pre-baked string — zero allocation
-        if (p.radius < 2.0) {
-          ctx.fillRect(p.x - p.radius, p.y - p.radius, p.radius * 2, p.radius * 2);
+        if (isMobileDevice || p.radius < 2.0) {
+          ctx.fillRect(
+            p.x - p.radius,
+            p.y - p.radius,
+            p.radius * 2,
+            p.radius * 2,
+          );
         } else {
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
